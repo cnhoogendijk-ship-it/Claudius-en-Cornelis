@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claudius & Cornelis — Vastgoed & Bedrijfsovernames</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #162232;
+    --navy-light: #1e3148;
+    --gold: #b8963e;
+    --gold-light: #d4af68;
+    --gold-pale: #f0e4c3;
+    --cream: #faf7f2;
+    --cream-dark: #f0ece3;
+    --text-dark: #0d1b2a;
+    --text-muted: #5a6272;
+    --text-light: #8a94a6;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13, 27, 42, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184, 150, 62, 0.2);
+    transition: padding 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+
+  .nav-brand span {
+    display: block;
+    font-size: 0.65rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    padding: 0.55rem 1.5rem;
+    border: 1px solid var(--gold);
+    color: var(--gold-light) !important;
+    border-radius: 0;
+    transition: background 0.2s, color 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 4rem 6rem;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(184,150,62,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,150,62,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,150,62,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow-2 {
+    position: absolute;
+    bottom: -300px;
+    left: -100px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,49,72,0.8) 0%, transparent 70%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-eyebrow-text {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    max-width: 460px;
+    margin-bottom: 3rem;
+    line-height: 1.9;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .btn-primary {
+    padding: 0.9rem 2.5rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--gold-light); }
+  .btn-ghost::after { content: '→'; transition: transform 0.2s; }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+
+  /* HERO STATS */
+  .hero-stats {
+    position: absolute;
+    right: 4rem;
+    bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s forwards;
+  }
+
+  .hero-stat {
+    text-align: right;
+    border-right: 1px solid rgba(184,150,62,0.3);
+    padding-right: 1.5rem;
+  }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+  }
+
+  /* VERKOPEN BANNER */
+  .verkopen-banner {
+    background: var(--gold);
+    padding: 1.2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .verkopen-banner-text {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+  }
+
+  .verkopen-banner-text strong {
+    font-weight: 500;
+  }
+
+  .verkopen-banner-link {
+    flex-shrink: 0;
+    padding: 0.5rem 1.4rem;
+    border: 1px solid var(--navy);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .verkopen-banner-link:hover {
+    background: rgba(13,27,42,0.1);
+  }
+
+  /* VERKOPEN SECTION */
+  .verkopen {
+    background: var(--cream-dark);
+    padding: 8rem 4rem;
+  }
+
+  .verkopen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .verkopen-content p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .verkopen-checklist {
+    list-style: none;
+    margin: 2rem 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .verkopen-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  .verkopen-checklist li::before {
+    content: '';
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--gold);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8 L6.5 11.5 L13 5' stroke='%23b8963e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+
+  .verkopen-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+  }
+
+  .verkopen-card {
+    background: var(--white);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .verkopen-card-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 1rem;
+  }
+
+  .verkopen-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .verkopen-card p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .verkopen-card:nth-child(3),
+  .verkopen-card:nth-child(4) {
+    background: var(--navy);
+  }
+
+  .verkopen-card:nth-child(3) h4,
+  .verkopen-card:nth-child(4) h4 {
+    color: var(--gold-light);
+  }
+
+  .verkopen-card:nth-child(3) p,
+  .verkopen-card:nth-child(4) p {
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* DIENSTEN */
+  .diensten {
+    padding: 8rem 4rem;
+    background: var(--cream);
+  }
+
+  .section-header {
+    margin-bottom: 5rem;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-eyebrow-text {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .diensten-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .dienst-card {
+    background: var(--white);
+    padding: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: default;
+  }
+
+  .dienst-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px;
+    width: 0;
+    background: var(--gold);
+    transition: width 0.4s;
+  }
+
+  .dienst-card:hover::before { width: 100%; }
+  .dienst-card:hover { transform: translateY(-3px); }
+
+  .dienst-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--cream-dark);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .dienst-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1.5rem;
+  }
+
+  .dienst-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .dienst-card p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .dienst-link {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .dienst-link:hover { gap: 0.8rem; }
+  .dienst-link::after { content: '→'; }
+
+  /* AANPAK */
+  .aanpak {
+    background: var(--navy);
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .aanpak-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .aanpak .section-title { color: var(--white); }
+
+  .aanpak-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .aanpak-steps::before {
+    content: '';
+    position: absolute;
+    top: 1.4rem;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(184,150,62,0.3) 10%, rgba(184,150,62,0.3) 90%, transparent);
+  }
+
+  .step {
+    padding: 0 2rem;
+    border-left: 1px solid rgba(184,150,62,0.15);
+  }
+
+  .step:first-child { padding-left: 0; border-left: none; }
+
+  .step-num {
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 1px solid rgba(184,150,62,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    background: var(--navy);
+    position: relative;
+    z-index: 2;
+  }
+
+  .step h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+
+  .step p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+
+  /* OVER ONS */
+  .over {
+    padding: 8rem 4rem;
+    background: var(--cream-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+  }
+
+  .over-text p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.9;
+  }
+
+  .over-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .value-item {
+    padding: 1.5rem;
+    background: var(--white);
+    border-left: 2px solid var(--gold);
+  }
+
+  .value-item h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+
+  .value-item p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin: 0;
+  }
+
+  .over-visual {
+    position: relative;
+  }
+
+  .over-card-main {
+    background: var(--navy);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .over-card-accent {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 60%;
+    height: 60%;
+    border: 1px solid rgba(184,150,62,0.3);
+    z-index: -1;
+  }
+
+  .over-card-main-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .over-card-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .over-card-main p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .over-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(184,150,62,0.3);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .over-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--white);
+    padding: 8rem 4rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 5rem;
+  }
+
+  .testimonial {
+    background: var(--cream);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .author-role {
+    font-size: 0.72rem;
+    color: var(--text-light);
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--navy);
+    padding: 8rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(184,150,62,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,150,62,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .contact-info { position: relative; z-index: 1; }
+
+  .contact .section-title { color: var(--white); }
+
+  .contact-details {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(184,150,62,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .contact-item-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-item-text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+
+  .contact-item-text a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item-text a:hover { color: var(--gold-light); }
+
+  /* FORM */
+  .contact-form-wrap {
+    position: relative;
+    z-index: 1;
+  }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,150,62,0.2);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23b8963e' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-color: rgba(255,255,255,0.05);
+    cursor: pointer;
+  }
+
+  .form-select option { background: var(--navy-mid); color: var(--white); }
+
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: rgba(184,150,62,0.6);
+  }
+
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+  .form-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--gold-light); }
+
+  /* FOOTER */
+  footer {
+    background: #080f18;
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(184,150,62,0.15);
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .footer-logo-icon { width: 28px; height: 28px; }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--gold-light);
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* FORM ROW */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 2rem 5rem; }
+    .hero-stats { display: none; }
+    .diensten, .testimonials, .over, .contact, .aanpak, .verkopen { padding: 5rem 2rem; }
+    .diensten-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .aanpak-steps { grid-template-columns: 1fr 1fr; }
+    .aanpak-steps::before { display: none; }
+    .over { grid-template-columns: 1fr; gap: 4rem; }
+    .contact { grid-template-columns: 1fr; gap: 4rem; }
+    .verkopen-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .verkopen-banner { flex-direction: column; padding: 1.2rem 2rem; gap: 1rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="36" height="36" stroke="#b8963e" stroke-width="0.8"/>
+      <rect x="5" y="5" width="28" height="28" stroke="#b8963e" stroke-width="0.4" stroke-dasharray="2 2"/>
+      <path d="M19 8 L19 30" stroke="#b8963e" stroke-width="0.5"/>
+      <path d="M8 19 L30 19" stroke="#b8963e" stroke-width="0.5"/>
+      <path d="M12 12 L19 8 L26 12 L30 19 L26 26 L19 30 L12 26 L8 19 Z" stroke="#b8963e" stroke-width="1.2" fill="none"/>
+      <circle cx="19" cy="19" r="3" fill="#b8963e"/>
+    </svg>
+    <div class="nav-brand">
+      Claudius & Cornelis
+      <span>Vastgoed & Bedrijfsovernames</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#verkopen">Vastgoed verkopen</a></li>
+    <li><a href="#diensten">Diensten</a></li>
+    <li><a href="#aanpak">Aanpak</a></li>
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Erasmusbrug_avond.jpg/1280px-Erasmusbrug_avond.jpg'); background-size: cover; background-position: center 40%;">
+  <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(13,27,42,0.92) 45%, rgba(13,27,42,0.55) 100%);"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-text">Vastgoed & Bedrijfsovernames</span>
+    </div>
+    <h1>Uw pand verkopen,<br><em>zonder zorgen</em><br>geregeld.</h1>
+    <p>Of u nu een kantoorpand, bedrijfsruimte of beleggingsobject wilt verkopen — wij zorgen voor de juiste koper, een eerlijke prijs en een soepel traject van begin tot einde.</p>
+    <div class="hero-actions">
+      <a href="#verkopen" class="btn-primary">Uw pand verkopen</a>
+      <a href="#diensten" class="btn-ghost">Meer over ons</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">200+</div>
+      <div class="hero-stat-label">Transacties begeleid</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">25jr</div>
+      <div class="hero-stat-label">Marktervaring</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">97%</div>
+      <div class="hero-stat-label">Klanttevredenheid</div>
+    </div>
+  </div>
+</section>
+
+<!-- VERKOPEN BANNER -->
+<div class="verkopen-banner">
+  <span class="verkopen-banner-text"><strong>Overweegt u uw vastgoed te verkopen?</strong> Wij denken graag vrijblijvend met u mee over de mogelijkheden en de marktwaarde van uw pand.</span>
+  <a href="#verkopen" class="verkopen-banner-link">Vrijblijvend oriënteren →</a>
+</div>
+
+<!-- VERKOPEN SECTION -->
+<section class="verkopen" id="verkopen">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-text">Uw vastgoed verkopen</span>
+    </div>
+    <h2 class="section-title">Zorgeloos verkopen<br>aan <em>de juiste koper</em></h2>
+  </div>
+  <div class="verkopen-grid">
+    <div class="verkopen-content reveal">
+      <p>Veel eigenaren stellen de verkoop van hun pand uit — niet omdat ze niet willen, maar omdat het gedoe met zich meebrengt. Wie zijn de serieuze kopers? Wat is mijn pand werkelijk waard? Hoe verloopt het juridische traject?</p>
+      <p>Wij nemen u dat uit handen. Geen uitputtende bezichtigingen met partijen die toch afhaken, geen onderhandelen in het duister, geen stapels papierwerk die u zelf moet uitzoeken. Wij kennen de markt, kennen de kopers, en weten hoe een goede transactie eruitziet.</p>
+      <p>Dat betekent niet dat wij overal bovenop zitten — wij werken liever rustig en zorgvuldig dan snel en slordig. U houdt zelf de regie, wij zorgen dat alles klopt.</p>
+      <ul class="verkopen-checklist">
+        <li>Vrijblijvende marktwaardebepaling van uw pand</li>
+        <li>Selectie van serieuze en gekwalificeerde kopers</li>
+        <li>Discrete begeleiding — uw pand hoeft niet op Funda</li>
+        <li>Volledige ontzorging: van taxatie tot notaris</li>
+        <li>Transparante communicatie gedurende het hele traject</li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="display:inline-block;text-decoration:none;">Vraag een gratis waardebepaling aan</a>
+    </div>
+    <div class="verkopen-cards reveal">
+      <div class="verkopen-card">
+        <svg class="verkopen-card-icon" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="13" stroke="#b8963e" stroke-width="1.2"/>
+          <path d="M18 10 L18 18 L23 23" stroke="#b8963e" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h4>Geen haast, wel daadkracht</h4>
+        <p>Wij nemen de tijd voor uw traject — maar laten kansen niet liggen.</p>
+      </div>
+      <div class="verkopen-card">
+        <svg class="verkopen-card-icon" viewBox="0 0 36 36" fill="none">
+          <path d="M8 18 C8 12 12 8 18 8 C24 8 28 12 28 18" stroke="#b8963e" stroke-width="1.2"/>
+          <path d="M8 18 C8 24 12 28 18 28 C24 28 28 24 28 18" stroke="#b8963e" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <circle cx="18" cy="18" r="3" fill="#b8963e"/>
+        </svg>
+        <h4>Breed netwerk van kopers</h4>
+        <p>Investeerders, bedrijven en fondsen die écht op zoek zijn.</p>
+      </div>
+      <div class="verkopen-card">
+        <svg class="verkopen-card-icon" viewBox="0 0 36 36" fill="none">
+          <rect x="7" y="9" width="22" height="18" rx="1" stroke="#d4af68" stroke-width="1.2"/>
+          <path d="M12 17 L16 21 L24 13" stroke="#d4af68" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <h4>Alles geregeld</h4>
+        <p>Van eerste gesprek tot sleuteloverdracht — u hoeft niets te vergeten.</p>
+      </div>
+      <div class="verkopen-card">
+        <svg class="verkopen-card-icon" viewBox="0 0 36 36" fill="none">
+          <path d="M10 26 L10 16 L18 10 L26 16 L26 26" stroke="#d4af68" stroke-width="1.2"/>
+          <path d="M15 26 L15 20 L21 20 L21 26" stroke="#d4af68" stroke-width="1.2"/>
+        </svg>
+        <h4>Vertrouwelijk traject</h4>
+        <p>Uw pand wordt niet zomaar publiek. Wij werken discreet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section class="diensten" id="diensten">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-text">Onze expertise</span>
+    </div>
+    <h2 class="section-title">Wat wij voor u<br><em>kunnen betekenen</em></h2>
+  </div>
+  <div class="diensten-grid">
+    <div class="dienst-card reveal">
+      <span class="dienst-num">01</span>
+      <svg class="dienst-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 38 L6 18 L22 8 L38 18 L38 38" stroke="#b8963e" stroke-width="1.2"/>
+        <path d="M14 38 L14 26 L22 26 L22 38" stroke="#b8963e" stroke-width="1.2"/>
+        <path d="M28 26 L36 26 L36 34 L28 34 Z" stroke="#b8963e" stroke-width="1.2"/>
+        <path d="M18 16 L26 16 L26 22 L18 22 Z" stroke="#b8963e" stroke-width="0.8"/>
+        <circle cx="22" cy="8" r="2" fill="#b8963e"/>
+      </svg>
+      <h3>Verkoop van commercieel vastgoed</h3>
+      <p>U wilt uw pand verkopen aan de juiste partij, tegen een goede prijs, zonder gedoe. Wij regelen de taxatie, zoeken geschikte kopers uit ons netwerk en begeleiden de onderhandeling en overdracht — zodat u zich nergens zorgen over hoeft te maken.</p>
+      <a href="#verkopen" class="dienst-link">Meer over verkopen</a>
+    </div>
+    <div class="dienst-card reveal">
+      <span class="dienst-num">02</span>
+      <svg class="dienst-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="10" width="32" height="24" stroke="#b8963e" stroke-width="1.2"/>
+        <path d="M6 18 L38 18" stroke="#b8963e" stroke-width="0.8"/>
+        <path d="M22 10 L22 34" stroke="#b8963e" stroke-width="0.8"/>
+        <circle cx="30" cy="14" r="2" fill="#b8963e"/>
+        <path d="M11 24 L17 24" stroke="#b8963e" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M11 28 L17 28" stroke="#b8963e" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M27 24 L33 28 L27 28 Z" stroke="#b8963e" stroke-width="1.2"/>
+      </svg>
+      <h3>Bedrijfsovernames & Fusies</h3>
+      <p>Volledige begeleiding bij de overname of verkoop van een onderneming — van waardebepaling en due diligence tot onderhandeling en juridische afronding.</p>
+      <a href="#contact" class="dienst-link">Meer informatie</a>
+    </div>
+    <div class="dienst-card reveal">
+      <span class="dienst-num">03</span>
+      <svg class="dienst-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="22" r="14" stroke="#b8963e" stroke-width="1.2"/>
+        <path d="M22 10 L22 34" stroke="#b8963e" stroke-width="0.8"/>
+        <path d="M10 22 L34 22" stroke="#b8963e" stroke-width="0.8"/>
+        <path d="M14 14 Q22 18 30 14" stroke="#b8963e" stroke-width="0.8" fill="none"/>
+        <path d="M14 30 Q22 26 30 30" stroke="#b8963e" stroke-width="0.8" fill="none"/>
+        <circle cx="22" cy="22" r="3" fill="#b8963e"/>
+      </svg>
+      <h3>Vastgoedinvesteringen</h3>
+      <p>Strategisch advies voor beleggers die rendementsoptimalisatie nastreven — van portfolioanalyse en locatieselectie tot risicobeoordeling en financieringsstructuren.</p>
+      <a href="#contact" class="dienst-link">Meer informatie</a>
+    </div>
+    <div class="dienst-card reveal">
+      <span class="dienst-num">04</span>
+      <svg class="dienst-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 34 L10 20 L18 14 L26 18 L34 10 L34 34" stroke="#b8963e" stroke-width="1.2"/>
+        <path d="M6 34 L38 34" stroke="#b8963e" stroke-width="0.8"/>
+        <circle cx="10" cy="34" r="2" fill="#b8963e"/>
+        <circle cx="18" cy="26" r="2" fill="#b8963e"/>
+        <circle cx="26" cy="20" r="2" fill="#b8963e"/>
+        <circle cx="34" cy="14" r="2" fill="#b8963e"/>
+        <path d="M30 10 L34 10 L34 14" stroke="#b8963e" stroke-width="1.2"/>
+      </svg>
+      <h3>Waardering & Advies</h3>
+      <p>Onafhankelijke en marktconforme waarderingen van vastgoed en ondernemingen — voor aan- en verkooptrajecten, financiering, belastingdoeleinden of geschillenbeslechting.</p>
+      <a href="#contact" class="dienst-link">Meer informatie</a>
+    </div>
+  </div>
+</section>
+
+<!-- AANPAK -->
+<section class="aanpak" id="aanpak">
+  <div class="aanpak-pattern"></div>
+  <div class="section-header reveal">
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-text" style="color: var(--gold);">Werkwijze</span>
+    </div>
+    <h2 class="section-title">Uw traject,<br><em style="color: var(--gold-light);">stap voor stap</em></h2>
+  </div>
+  <div class="aanpak-steps">
+    <div class="step reveal">
+      <div class="step-num">I</div>
+      <h4>Kennismaking & intake</h4>
+      <p>In een vrijblijvend gesprek brengen wij uw situatie, wensen en doelstellingen in kaart. Vertrouwelijkheid staat centraal.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">II</div>
+      <h4>Analyse & strategie</h4>
+      <p>Wij voeren een gedegen marktanalyse uit en ontwikkelen een op maat gemaakte strategie voor uw transactie.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">III</div>
+      <h4>Begeleiding & onderhandeling</h4>
+      <p>Met onze diepgaande onderhandelingservaring maximaliseren wij uw resultaat — discreet en doelgericht.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">IV</div>
+      <h4>Afronding & nazorg</h4>
+      <p>Van contractvorming tot notariële afhandeling: wij begeleiden u tot en met de sleuteloverdracht.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OVER ONS -->
+<section class="over" id="over">
+  <div class="over-text reveal">
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-text">Over ons</span>
+    </div>
+    <h2 class="section-title" style="margin-bottom: 2rem;">Vertrouwen gebouwd<br>op <em>eerlijk advies</em></h2>
+    <p>Claudius & Cornelis is een onafhankelijk adviesbureau gespecialiseerd in commercieel vastgoed en bedrijfsovernames, gevestigd in Capelle aan den IJssel. Wij werken voor eigenaren die willen verkopen, ondernemers die hun bedrijf willen overdragen, en investeerders die gericht zoeken.</p>
+    <p>Wij zijn geen groot kantoor met honderd adviseurs — en dat is ook niet wat onze cliënten zoeken. Zij waarderen de persoonlijke aanpak, de korte lijnen en het feit dat ze altijd dezelfde persoon aan de lijn hebben. Iemand die hun situatie kent en eerlijk met hen praat.</p>
+    <div class="over-values">
+      <div class="value-item reveal">
+        <h5>Discretie</h5>
+        <p>Absolute vertrouwelijkheid in elk traject</p>
+      </div>
+      <div class="value-item reveal">
+        <h5>Onafhankelijkheid</h5>
+        <p>Altijd in uw belang, zonder bijoogmerken</p>
+      </div>
+      <div class="value-item reveal">
+        <h5>Marktkennis</h5>
+        <p>25 jaar ervaring in de regio</p>
+      </div>
+      <div class="value-item reveal">
+        <h5>Resultaatgericht</h5>
+        <p>Succes gemeten in uw rendement</p>
+      </div>
+    </div>
+  </div>
+  <div class="over-visual reveal">
+    <div class="over-card-main">
+      <div class="over-card-main-eyebrow">Claudius & Cornelis — Capelle aan den IJssel</div>
+      <div class="over-card-main-title">Uw belang staat<br>altijd voorop.</div>
+      <p>Wij verdienen ons geld aan een goede transactie — niet aan het ophangen van mooie praatjes. Daarom geven wij u ook eerlijk advies als de timing niet goed is, of als de vraagprijs niet realistisch is. Dat is precies wat onze cliënten van ons verwachten.</p>
+      <div class="over-badge">Lid NVM & RVO gecertificeerd</div>
+    </div>
+    <div class="over-card-accent"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">
+      <span class="section-eyebrow-text">Ervaringen</span>
+    </div>
+    <h2 class="section-title">Wat onze cliënten<br><em>over ons zeggen</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal">
+      <p class="testimonial-text">Claudius & Cornelis heeft de verkoop van ons bedrijfspand op uitzonderlijke wijze begeleid. Professioneel, discreet en met een uitstekend eindresultaat boven de vraagprijs.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MV</div>
+        <div>
+          <div class="author-name">M. van der Berg</div>
+          <div class="author-role">Directeur, Logistiek bedrijf Rotterdam</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <p class="testimonial-text">De overname van ons familiebedrijf was een emotioneel en complex proces. Claudius & Cornelis navigeerde dit met vakkundigheid en oprecht persoonlijk begrip. Een bijzondere partner.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AK</div>
+        <div>
+          <div class="author-name">A. Kleinjan</div>
+          <div class="author-role">Eigenaar, Technisch installatiebedrijf</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <p class="testimonial-text">Als investeerder waardeer ik hun onafhankelijke advies en diepgaande kennis van de Zuid-Hollandse markt. Drie aankopen begeleid, drie uitstekende resultaten.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RS</div>
+        <div>
+          <div class="author-name">R. Scholten</div>
+          <div class="author-role">Particulier vastgoedinvesteerder</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-pattern"></div>
+  <div class="contact-info">
+    <div class="section-eyebrow" style="margin-bottom: 1.5rem;">
+      <span class="section-eyebrow-text" style="color: var(--gold);">Contact</span>
+    </div>
+    <h2 class="section-title" style="margin-bottom: 1rem;">Laten wij<br><em style="color: var(--gold-light);">kennismaken.</em></h2>
+    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.9; max-width: 360px; margin-bottom: 3rem;">Heeft u een pand dat u wilt verkopen, of wilt u gewoon weten wat het waard is? Neem gerust contact op — geen verplichtingen, wel een eerlijk gesprek.</p>
+
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Adres</div>
+          <div class="contact-item-text">Fascinatio Boulevard 562<br>2909 VA Capelle aan den IJssel<br>Zuid-Holland, Nederland</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">E-mail</div>
+          <div class="contact-item-text"><a href="mailto:info@claudius-cornelis.nl">info@claudius-cornelis.nl</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div>
+          <div class="contact-item-label">Bereikbaarheid</div>
+          <div class="contact-item-text">Maandag – vrijdag<br>08:30 – 17:30 uur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-wrap reveal">
+    <div class="form-title">Stuur ons een bericht</div>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Voornaam</label>
+          <input type="text" class="form-input" placeholder="Jan">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Achternaam</label>
+          <input type="text" class="form-input" placeholder="de Vries">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">E-mailadres</label>
+        <input type="email" class="form-input" placeholder="jan@bedrijf.nl">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Telefoonnummer</label>
+        <input type="tel" class="form-input" placeholder="+31 6 12 34 56 78">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Onderwerp</label>
+        <select class="form-input form-select">
+          <option value="">Selecteer een dienst</option>
+          <option>Commercieel vastgoed</option>
+          <option>Bedrijfsovername of -verkoop</option>
+          <option>Vastgoedinvestering</option>
+          <option>Waardering & advies</option>
+          <option>Overig</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Bericht</label>
+        <textarea class="form-input form-textarea" placeholder="Beschrijf uw situatie kort..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Verstuur bericht →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <svg class="footer-logo-icon" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="36" height="36" stroke="#b8963e" stroke-width="0.8"/>
+      <path d="M12 12 L19 8 L26 12 L30 19 L26 26 L19 30 L12 26 L8 19 Z" stroke="#b8963e" stroke-width="1" fill="none"/>
+      <circle cx="19" cy="19" r="2.5" fill="#b8963e"/>
+    </svg>
+    <span class="footer-name">Claudius & Cornelis</span>
+  </div>
+  <span class="footer-copy">© 2025 Claudius & Cornelis — Alle rechten voorbehouden</span>
+  <ul class="footer-links">
+    <li><a href="#">Privacybeleid</a></li>
+    <li><a href="#">Disclaimer</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 80;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Bericht verzonden ✓';
+    btn.style.background = '#3a7d44';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Verstuur bericht →';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
